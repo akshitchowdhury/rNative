@@ -66,6 +66,7 @@ export default function ApiCall2(){
                     borderColor: 'purple',
                     borderRadius: 100,
                     textAlign: 'center',
+                    color: 'gray',
                     marginTop: 10}}>
                         {itemData.item}
                     </Text>}
