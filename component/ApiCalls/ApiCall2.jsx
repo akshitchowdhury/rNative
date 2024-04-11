@@ -1,16 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { Button, ScrollView, Text, TextInput, View, FlatList, Pressable } from 'react-native';
+import { Button, ScrollView, Text, TextInput, View, FlatList, Pressable, ActivityIndicator } from 'react-native';
 
 export default function ApiCall2(){
 
     const[apiData, setApiData] = useState([])
 
 
-
+    const[loading, setLoading] = useState(false)
 
     useEffect(
+
+        ()=>{
+
+        setLoading(true)
 
         async function getApiData(){
 
@@ -21,17 +25,25 @@ export default function ApiCall2(){
             if(finalIncomingData){
                 setApiData(
                     finalIncomingData.users.map(userItem=> `${userItem.firstName} ${userItem.lastName} age: ${userItem.age}`)
+ 
                 )
+                    
+            setLoading(false)
             }
 
-            getApiData()
+
 
         }
+        getApiData()
+    }
 
 
     ,[])
 
 
+    if(loading){
+       return <ActivityIndicator color={'blue'} size={'large'} />
+    }
 
     return(
 
