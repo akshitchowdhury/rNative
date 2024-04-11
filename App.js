@@ -3,13 +3,16 @@ import { useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 import Calc from './component/Calculator/Calc';
 import NoteList from './component/ListNotes/NoteList';
+import ApiCall from './component/ApiCalls/ApiCall';
+import ApiCall2 from './component/ApiCalls/ApiCall2';
 
 export default function App() {
   return (
     <View style={styles.container}>
     {/* <Calc/> */}
-      
-      <NoteList/>
+{/*       
+      <NoteList/> */}
+      <ApiCall2/>
       </View>
   );
 }
